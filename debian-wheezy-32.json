@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "virtualbox",
-            "iso_url": "file:///Users/ash/ISO/debian-7.1.0-i386-CD-1.iso",
+            "iso_url": "http://cdimage.debian.org/debian-cd/7.1.0/i386/iso-cd/debian-7.1.0-i386-CD-1.iso",
             "iso_md5": "c29ec2db6754dadd341b9763164aca9a",
             "ssh_username": "packer",
             "ssh_password": "packer",

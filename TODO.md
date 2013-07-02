@@ -1,0 +1,2 @@
+1. Investigate why is Vagrant complaining that VirtualBoxGuestAddition is not the good version
+2. Investigate the "last superblock write is in the future" thing (maybe install ntpdate during provisioning?)

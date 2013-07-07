@@ -30,12 +30,13 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "scripts/post-install.sh",
+            "scripts": [
+                "scripts/apt.sh",
+                "scripts/vagrant.sh"
+            ],
             "execute_command": "{{ .Vars }} sudo bash {{ .Path }}"
         }
     ],
 
-    "post-processors": [
-        "vagrant"
-    ]
+    "post-processors": ["vagrant"]
 }

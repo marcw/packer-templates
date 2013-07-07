@@ -30,7 +30,7 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "provision.bash",
+            "script": "scripts/post-install.sh",
             "execute_command": "{{ .Vars }} sudo bash {{ .Path }}"
         }
     ],

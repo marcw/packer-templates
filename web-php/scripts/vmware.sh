@@ -1,3 +1,4 @@
+#!/bin/bash
 apt-get -q -y install gcc make fuse fuse-utils linux-headers-$(uname -r)
 
 mkdir /mnt/vmware

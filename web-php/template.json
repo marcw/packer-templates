@@ -2,39 +2,29 @@
     "builders": [
         {
             "type": "vmware",
-            "iso_url": "/Users/ash/ISO/debian-7.1.0-i386-CD-1.iso",
-            "iso_md5": "c29ec2db6754dadd341b9763164aca9a",
-            "disk_size": 5000,
+            "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
+            "iso_md5": "80f498a1f9daa76bc911ae13692e4495",
+            "disk_size": 6000,
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
-            "guest_os_type": "debian6",
+            "guest_os_type": "debian6-64",
             "headless": false,
             "http_directory": ".",
             "boot_wait": "5s",
             "boot_command": ["<esc><wait>auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<enter>"],
-            "shutdown_command": "sudo halt -p",
-            "headless": true
-        },
-        {
-            "type": "virtualbox",
-            "iso_url": "/Users/ash/ISO/debian-7.1.0-i386-CD-1.iso",
-            "iso_md5": "c29ec2db6754dadd341b9763164aca9a",
-            "ssh_username": "vagrant",
-            "ssh_password": "vagrant",
-            "guest_os_type": "Debian",
-            "headless": false,
-            "http_directory": ".",
-            "boot_wait": "5s",
-            "boot_command": ["<esc><wait>auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<enter>"],
-            "shutdown_command": "sudo halt -p",
-            "headless": true
+            "shutdown_command": "sudo halt -p"
         }
     ],
 
     "provisioners": [
         {
+            "type": "file",
+            "source": "/Users/ash/ISO/linux.iso",
+            "destination": "/tmp/linux.iso"
+        },
+        {
             "type": "shell",
-            "scripts": ["scripts/apt.sh", "scripts/vagrant.sh"],
+            "scripts": ["scripts/apt.sh", "scripts/vagrant.sh", "scripts/vmware.sh", "scripts/base.sh"],
             "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo {{ .Path }}"
         }
     ],

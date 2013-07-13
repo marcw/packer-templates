@@ -24,7 +24,13 @@
         },
         {
             "type": "shell",
-            "scripts": ["scripts/apt.sh", "scripts/vagrant.sh", "scripts/vmware.sh", "scripts/base.sh"],
+            "scripts": [
+                "scripts/apt.sh",
+                "scripts/vagrant.sh",
+                "scripts/vmware.sh",
+                "scripts/base.sh",
+                "scripts/clean.sh"
+            ],
             "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo {{ .Path }}"
         }
     ],

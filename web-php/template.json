@@ -3,7 +3,8 @@
         {
             "type": "vmware",
             "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
-            "iso_md5": "80f498a1f9daa76bc911ae13692e4495",
+            "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
+            "iso_checksum_type": "md5",
             "disk_size": 6000,
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",

@@ -14,15 +14,29 @@
             "boot_wait": "5s",
             "boot_command": ["<esc><wait>auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<enter>"],
             "shutdown_command": "sudo halt -p"
+        },
+        {
+            "type": "virtualbox",
+            "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
+            "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
+            "iso_checksum_type": "md5",
+            "disk_size": 6000,
+            "ssh_username": "vagrant",
+            "ssh_password": "vagrant",
+            "guest_os_type": "Debian_64",
+            "headless": false,
+            "http_directory": ".",
+            "boot_wait": "5s",
+            "boot_command": ["<esc><wait>auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<enter>"],
+            "shutdown_command": "sudo halt -p"
         }
     ],
 
     "provisioners": [
-        {
-            "type": "file",
-            "source": "/Users/ash/ISO/linux.iso",
-            "destination": "/tmp/linux.iso"
-        },
+        { "type": "file", "source": "vmware/linux.iso", "destination": "/tmp/linux.iso" },
+        { "type": "file", "source": "config/nginx.conf", "destination": "/tmp/nginx.conf" },
+        { "type": "file", "source": "config/php.ini", "destination": "/tmp/php.ini" },
+        { "type": "file", "source": "config/sources.list", "destination": "/tmp/sources.list" },
         {
             "type": "shell",
             "scripts": [

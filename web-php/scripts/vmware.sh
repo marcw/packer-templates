@@ -1,4 +1,10 @@
 #!/bin/bash
+
+[ "$PACKER_BUILDER_TYPE" == "vmware" ] || {
+    echo 'not building vmware, skipping';
+    exit;
+}
+
 apt-get -q -y install gcc make fuse fuse-utils linux-headers-$(uname -r)
 
 mkdir /mnt/vmware

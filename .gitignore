@@ -2,3 +2,5 @@
 packer_cache
 virtualbox
 .DS_Store
+linux.iso
+output-virtualbox

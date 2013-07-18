@@ -14,7 +14,8 @@ apt-get -q -y install \
     mongodb-server \
     git \
     vim \
-    curl
+    curl \
+    httpie
 
 cp /tmp/nginx.conf /etc/nginx/sites-available/default
 

@@ -4,3 +4,4 @@ virtualbox
 .DS_Store
 linux.iso
 output-virtualbox
+output-vmware

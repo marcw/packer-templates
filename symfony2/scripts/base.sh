@@ -1,6 +1,11 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 
+mv /tmp/sources.list /etc/apt/sources.list
+wget http://www.dotdeb.org/dotdeb.gpg -O - | apt-key add -
+
+apt-get update
+
 apt-get -q -y install \
     nginx \
     php5-fpm \

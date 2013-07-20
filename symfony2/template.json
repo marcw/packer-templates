@@ -1,7 +1,6 @@
 {
     "builders": [
         {
-            "name": "symfony2",
             "type": "vmware",
             "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
             "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
@@ -11,13 +10,12 @@
             "ssh_password": "vagrant",
             "guest_os_type": "debian6-64",
             "headless": false,
-            "http_directory": ".",
+            "http_directory": "support/http",
             "boot_wait": "5s",
             "boot_command": ["<esc><wait>auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<enter>"],
             "shutdown_command": "sudo halt -p"
         },
         {
-            "name": "symfony2",
             "type": "virtualbox",
             "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
             "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
@@ -27,7 +25,7 @@
             "ssh_password": "vagrant",
             "guest_os_type": "Debian_64",
             "headless": false,
-            "http_directory": ".",
+            "http_directory": "support/http",
             "boot_wait": "5s",
             "boot_command": ["<esc><wait>auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<enter>"],
             "shutdown_command": "sudo halt -p"
@@ -35,18 +33,17 @@
     ],
 
     "provisioners": [
-        { "type": "file", "source": "vmware/linux.iso", "destination": "/tmp/linux.iso" },
-        { "type": "file", "source": "config/nginx.conf", "destination": "/tmp/nginx.conf" },
-        { "type": "file", "source": "config/php.ini", "destination": "/tmp/php.ini" },
-        { "type": "file", "source": "config/sources.list", "destination": "/tmp/sources.list" },
+        { "type": "file", "source": "support/vmware/linux.iso", "destination": "/tmp/linux.iso" },
+        { "type": "file", "source": "symfony2/config/nginx.conf", "destination": "/tmp/nginx.conf" },
+        { "type": "file", "source": "symfony2/config/php.ini", "destination": "/tmp/php.ini" },
+        { "type": "file", "source": "symfony2/config/sources.list", "destination": "/tmp/sources.list" },
         {
             "type": "shell",
             "scripts": [
-                "scripts/apt.sh",
-                "scripts/vagrant.sh",
-                "scripts/vmware.sh",
-                "scripts/base.sh",
-                "scripts/clean.sh"
+                "symfony2/scripts/base.sh",
+                "support/scripts/vagrant.sh",
+                "support/scripts/vmware.sh",
+                "support/scripts/clean.sh"
             ],
             "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo {{ .Path }}"
         }

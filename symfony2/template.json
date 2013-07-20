@@ -1,6 +1,7 @@
 {
     "builders": [
         {
+            "name": "symfony2",
             "type": "vmware",
             "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
             "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
@@ -16,6 +17,7 @@
             "shutdown_command": "sudo halt -p"
         },
         {
+            "name": "symfony2",
             "type": "virtualbox",
             "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
             "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",

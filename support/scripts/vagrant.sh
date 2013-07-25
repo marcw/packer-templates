@@ -9,4 +9,3 @@ chmod 0600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant:vagrant /home/vagrant/
 
 date > /etc/vagrant_box_build_time
-echo 'Welcome to your Vagrant-built virtual machine.' > /var/run/motd

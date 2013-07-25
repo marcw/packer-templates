@@ -13,7 +13,10 @@
             "http_directory": "support/http",
             "boot_wait": "5s",
             "boot_command": ["<esc><wait>auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<enter>"],
-            "shutdown_command": "sudo halt -p"
+            "shutdown_command": "sudo halt -p",
+            "tools_upload_flavor": "linux",
+            "tools_upload_path": "/tmp/{{ .Flavor }}.iso",
+            "vm_name": "symfony2"
         },
         {
             "type": "virtualbox",
@@ -33,13 +36,13 @@
     ],
 
     "provisioners": [
-        { "type": "file", "source": "support/vmware/linux.iso", "destination": "/tmp/linux.iso" },
         { "type": "file", "source": "symfony2/config/nginx.conf", "destination": "/tmp/nginx.conf" },
         { "type": "file", "source": "symfony2/config/php.ini", "destination": "/tmp/php.ini" },
         { "type": "file", "source": "symfony2/config/sources.list", "destination": "/tmp/sources.list" },
         {
             "type": "shell",
             "scripts": [
+                "support/scripts/base.sh",
                 "symfony2/scripts/base.sh",
                 "support/scripts/vagrant.sh",
                 "support/scripts/vmware.sh",

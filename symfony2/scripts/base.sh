@@ -6,7 +6,7 @@ wget http://www.dotdeb.org/dotdeb.gpg -O - | apt-key add -
 
 apt-get update
 
-apt-get -q -y install \
+apt-get -qy install \
     nginx \
     php5-fpm \
     php5-cli \
@@ -17,9 +17,7 @@ apt-get -q -y install \
     mysql-client \
     mysql-server \
     mongodb-server \
-    git \
-    vim \
-    curl \
+    monit \
     httpie
 
 cp /tmp/nginx.conf /etc/nginx/sites-available/default
@@ -29,4 +27,3 @@ cp /tmp/php.ini /etc/php5/fpm/php.ini
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
-

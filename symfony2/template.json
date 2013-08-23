@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "vmware",
-            "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
+            "iso_url": "{{user `iso_url`}}",
             "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
             "iso_checksum_type": "md5",
             "disk_size": 6000,
@@ -20,7 +20,7 @@
         },
         {
             "type": "virtualbox",
-            "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
+            "iso_url": "{{user `iso_url`}}",
             "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
             "iso_checksum_type": "md5",
             "disk_size": 6000,
@@ -35,6 +35,17 @@
         }
     ],
 
+    "variables": {
+        "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
+        "install_postgresql": "false",
+        "install_rabbitmq": "false",
+        "install_daemontools": "false",
+        "install_monit": "false",
+        "install_redis": "false",
+        "install_mongodb": "false",
+        "install_mysql": "false"
+    },
+
     "provisioners": [
         { "type": "file", "source": "symfony2/config/nginx.conf", "destination": "/tmp/nginx.conf" },
         { "type": "file", "source": "symfony2/config/php.ini", "destination": "/tmp/php.ini" },
@@ -47,6 +58,15 @@
                 "support/scripts/vagrant.sh",
                 "support/scripts/vmware.sh",
                 "support/scripts/clean.sh"
+            ],
+            "environment_vars": [
+                "install_postgresql={{user `install_postgresql`}}",
+                "install_rabbitmq={{user `install_rabbitmq`}}",
+                "install_daemontools={{user `install_daemontools`}}",
+                "install_monit={{user `install_monit`}}",
+                "install_redis={{user `install_redis`}}",
+                "install_mongodb={{user `install_mongodb`}}",
+                "install_mysql={{user `install_mysql`}}"
             ],
             "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} {{ .Path }}"
         }

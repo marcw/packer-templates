@@ -1,0 +1,10 @@
+{
+    "iso_url": "/Users/marc/ISO/debian-7.1.0-amd64-netinst.iso",
+    "install_rabbitmq": "true",
+    "install_postgresql": "true",
+    "install_daemontools": "true",
+    "install_monit": "true",
+    "install_redis": "true",
+    "install_mongodb": "true",
+    "install_mysql": "true"
+}

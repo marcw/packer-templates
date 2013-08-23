@@ -1,5 +1,6 @@
 deb http://packages.dotdeb.org wheezy all
 deb http://packages.dotdeb.org wheezy-php55 all
+deb http://www.rabbitmq.com/debian/ testing main
 
 deb http://ftp.ca.debian.org/debian stable main contrib non-free
 deb http://ftp.debian.org/debian/ wheezy-updates main contrib non-free

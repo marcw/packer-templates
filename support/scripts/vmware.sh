@@ -5,7 +5,7 @@
     exit;
 }
 
-apt-get -q -y install gcc make fuse fuse-utils linux-headers-$(uname -r)
+apt-get -qy install gcc make fuse fuse-utils linux-headers-$(uname -r)
 
 mkdir /mnt/vmware
 mount -o loop /tmp/linux.iso /mnt/vmware

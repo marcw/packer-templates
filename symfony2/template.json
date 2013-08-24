@@ -37,13 +37,14 @@
 
     "variables": {
         "iso_url": "/Users/ash/ISO/debian-7.1.0-amd64-netinst.iso",
+        "install_daemontools": "false",
+        "install_mongodb": "false",
+        "install_monit": "false",
+        "install_mysql": "false",
         "install_postgresql": "false",
         "install_rabbitmq": "false",
-        "install_daemontools": "false",
-        "install_monit": "false",
         "install_redis": "false",
-        "install_mongodb": "false",
-        "install_mysql": "false"
+        "install_zsh": "false"
     },
 
     "provisioners": [
@@ -60,13 +61,14 @@
                 "support/scripts/clean.sh"
             ],
             "environment_vars": [
+                "install_daemontools={{user `install_daemontools`}}",
+                "install_mongodb={{user `install_mongodb`}}",
+                "install_monit={{user `install_monit`}}",
+                "install_mysql={{user `install_mysql`}}",
                 "install_postgresql={{user `install_postgresql`}}",
                 "install_rabbitmq={{user `install_rabbitmq`}}",
-                "install_daemontools={{user `install_daemontools`}}",
-                "install_monit={{user `install_monit`}}",
                 "install_redis={{user `install_redis`}}",
-                "install_mongodb={{user `install_mongodb`}}",
-                "install_mysql={{user `install_mysql`}}"
+                "install_zsh={{user `install_zsh`}}"
             ],
             "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} {{ .Path }}"
         }

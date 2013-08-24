@@ -77,3 +77,9 @@ if [ $install_httpie = "true" ]
 then
     apt-get -qy install httpie
 fi
+
+if [$install_zsh = "true" ]
+then
+    apt-get -qy install zsh
+    touch ~/.zshrc
+fi
